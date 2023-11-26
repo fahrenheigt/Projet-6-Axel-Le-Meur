@@ -1,4 +1,5 @@
 getCategory();
+getWorks();
 
 //Récupération des catégories via l'API
 
@@ -43,7 +44,48 @@ function findByCategory(id) {
 }
 
 // Afficher tous les projets avec le filtre "Tous"
+
 function showAllWorks() {
     const works = JSON.parse(localStorage.getItem('worksedit'));
     createDocumentWorks(works);
+}
+
+// Récupération des projets depuis l'API
+
+function getWorks() {
+    const worksUrl = 'http://localhost:5678/api/works';
+
+    fetch(worksUrl)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            const fragment = document.createDocumentFragment();
+            let works = data;
+            localStorage.setItem('worksedit', JSON.stringify(data));
+            createDocumentWorks(works);
+        })
+}
+
+function createDocumentWorks(works) {
+    const fragment = document.createDocumentFragment();
+    const gallery = document.getElementsByClassName('gallery')[0];
+
+    gallery.innerHTML = ''; 
+    works.forEach((work) => {
+        const figure = document.createElement('figure');
+        const div = document.createElement('div');
+        const img = document.createElement('img');
+
+        img.src = work.imageUrl;
+        img.crossOrigin = 'anonymous';
+
+        const caption = document.createElement('figcaption')
+        caption.textContent = work.title;
+        fragment.appendChild(figure);
+        figure.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(caption);
+    })
+    gallery.appendChild(fragment);
 }
