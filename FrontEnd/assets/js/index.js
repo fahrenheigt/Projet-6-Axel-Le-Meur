@@ -89,3 +89,38 @@ function createDocumentWorks(works) {
     })
     gallery.appendChild(fragment);
 }
+
+// Ajout des projets sur la boite modale
+
+function addWorkModal() {
+    const fragment = document.createDocumentFragment();
+    const galleryModal = document.getElementsByClassName('gallerymodal')[0];
+    galleryModal.innerHTML='';
+
+    const works = JSON.parse(localStorage.getItem('worksedit'));
+
+    works.forEach((work) => {
+    const div = document.createElement('div');
+    div.id = "gallery_edit_img";
+
+    const img = document.createElement('img');
+    img.src = work.imageUrl;
+    img.crossOrigin = 'anonymous';
+    div.appendChild(img);
+
+    const i = document.createElement('i');
+    i.setAttribute("class", "fa fa-trash");
+    i.setAttribute("data-id", work.id);
+    i.setAttribute("onclick", "deleteWork(this, " + work.id + ")");
+    div.appendChild(i);
+
+    const p = document.createElement('p');
+    p.textContent = 'éditer';
+    p.setAttribute("data-id", work.id);
+    div.appendChild(p);
+
+    fragment.appendChild(div);
+    });
+  
+    galleryModal.appendChild(fragment);
+}
