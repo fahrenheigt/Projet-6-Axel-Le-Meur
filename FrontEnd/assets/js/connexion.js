@@ -4,7 +4,7 @@ const editBtn = document.querySelectorAll(".modifier");
 const logout = document.querySelector('[href="login.html"]');
 const filters = document.querySelectorAll("#category");
 
-// Si nous avons récupéré le token
+// Si token = ok
 if (isConnected()) {
     modeEdition.style.display = "flex";
 
@@ -27,7 +27,7 @@ if (isConnected()) {
     logout.textContent = "logout";
     logout.setAttribute("href", "#");
 
-    // Lorque l'on clic sur logout cela déconnecte l'utilisateur
+    // Deconnexion au logout
     logout.addEventListener("click", event => {
         event.preventDefault();
 
