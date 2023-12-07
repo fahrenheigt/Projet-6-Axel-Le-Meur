@@ -659,6 +659,10 @@ figcaption {
 	background-color: white;
 }
 
+#validerajout {
+	cursor: pointer;
+}
+
 #ajout-form {
 	width: 80%;
 	display: flex;
@@ -666,3 +670,7 @@ figcaption {
 	align-items: center;
 }
 /* Fin Modal */
+
+#submitButton{
+	cursor: pointer;
+}

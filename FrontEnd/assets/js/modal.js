@@ -174,3 +174,29 @@ function uploadImage() {
         projectUpload.appendChild(image);
     }
 }
+
+    // Ajout du debounce pour éviter le spam click
+    const handleSubmit = () => {
+        submitProjet.addEventListener("click", () => {
+          handleFormSubmit();
+          closeAddWorkModal();
+        });
+  
+        requestAnimationFrame(() => {
+          submitProjet.removeEventListener("click", handleSubmit);
+        });
+      };
+      handleSubmit();
+
+          // Effet au survol du bouton valider
+    submitProjet.addEventListener("mouseover", () => {
+        submitProjet.style.backgroundColor = "#297267";
+        submitProjet.style.transform = "scale(1.1)";
+      });
+  
+      submitProjet.addEventListener("mouseout", () => {
+        submitProjet.style.backgroundColor = "#1D6154";
+        submitProjet.style.transform = "scale(1)";
+      });
+
+  
