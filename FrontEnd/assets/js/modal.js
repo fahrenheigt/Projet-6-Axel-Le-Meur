@@ -89,7 +89,8 @@ function deleteWork(event, id) {
          alert.innerHTML = "Votre photo a été supprimé avec succès";
          alert.style.display = "block";
          setTimeout(() => { alert.style.display = "none"; }, 5000);
-        
+        //actualiser la page pour voir la suppression
+        window.location.reload();
     })
     .catch((error) => {
      console.error('Error:', error);
@@ -107,7 +108,9 @@ async function sendWorkData(data) {
         },
         body: data,
     });
-
+// actualiser la page pour voir l'ajout
+    window.location.reload();
+    
     return response.json();
 }
 
@@ -194,7 +197,7 @@ function uploadImage() {
         submitProjet.style.transform = "scale(1.1)";
       });
   
-      submitProjet.addEventListener("mouseout", () => {
+    submitProjet.addEventListener("mouseout", () => {
         submitProjet.style.backgroundColor = "#1D6154";
         submitProjet.style.transform = "scale(1)";
       });
