@@ -1,8 +1,15 @@
 // Récupération id utilisateur et token
 function getAuthorization() {
-    const token = JSON.parse(localStorage.getItem('auth')).token;
-    return 'Bearer ' + token;
+  const token = localStorage.getItem('auth');
+
+  if (!token) {
+    // Il n'y a pas de token
+    return null;
   }
+
+  const tokenData = JSON.parse(token);
+  return 'Bearer ' + tokenData.token;
+}
   
   // Utilisateur connecté ?
   function isConnected() {
