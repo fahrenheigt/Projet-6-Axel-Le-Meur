@@ -16,7 +16,7 @@ if (isConnected()) {
     navHeader.style.paddingTop = "25px";
 
     for (let i = 0; i < filters.length; i++) {
-        filters[i].style.display = "none";
+        filters[i].style.display = "flex";
     }
     
     for (let i = 0; i < editBtn.length; i++) {
