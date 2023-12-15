@@ -252,6 +252,7 @@ footer nav ul {
 	text-align: center;
 	color: #1D6154;
 	background-color: white;
+	cursor: pointer;
 }
 .subcat:hover {
 	background-color: #1D6154;
