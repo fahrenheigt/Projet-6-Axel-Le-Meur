@@ -115,7 +115,7 @@ function addWorkModal() {
     div.appendChild(i);
 
     const p = document.createElement('p');
-    p.textContent = 'éditer';
+    p.textContent = '';
     p.setAttribute("data-id", work.id);
     div.appendChild(p);
 

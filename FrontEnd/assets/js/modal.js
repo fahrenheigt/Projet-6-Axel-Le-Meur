@@ -44,6 +44,21 @@ function closeAddWorkModal() {
     backgroundModal.style.display = "none";
 }
 
+//Clear modal à la fermeture
+
+closeAddWorkModalBtn.addEventListener('click', () => {
+  clearModalContent();
+});
+
+function clearModalContent() {
+
+    // Clear form data
+    document.querySelector('#ajout-form').reset();
+    projectUpload.innerHTML = '';
+    uploadContent.style.display = '';
+  }
+  
+
 // Ouvrir les modals
 if (openGalleryModalBtn) openGalleryModalBtn.addEventListener("click", openGalleryModal);
 if (openAddWork) openAddWork.addEventListener("click", function() {
@@ -172,7 +187,6 @@ function uploadImage() {
         uploadContent.style.display = "none";
         submitProjet.style.backgroundColor = "#1D6154";
         projectUpload.style.display = "block";
-        backgroundPreview.style.backgroundColor = "#FFFFFF";
         reader.readAsDataURL(uploadImageInput.files[0]);
         projectUpload.appendChild(image);
     }
