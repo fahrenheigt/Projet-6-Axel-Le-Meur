@@ -482,6 +482,7 @@ figure .modifier {
 	justify-content: center;
 	align-items: center;
 	font-family: 'Syne';
+	cursor: pointer;
 }
 
 #validerAjout {
@@ -626,6 +627,7 @@ figcaption {
 	padding: 1rem 2rem;
 	color: #306685;
 	margin: 0.5rem 0;
+	cursor: pointer;
 }
 
 .AjoutDetail {
