@@ -104,8 +104,21 @@ function deleteWork(event, id) {
          alert.innerHTML = "Votre photo a été supprimé avec succès";
          alert.style.display = "block";
          setTimeout(() => { alert.style.display = "none"; }, 5000);
-        //actualiser la page pour voir la suppression
-        window.location.reload();
+
+// requête http pour voir les photos ajoutées
+    const fetchWorks = 'http://localhost:5678/api/works';
+
+    fetch(fetchWorks)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            const fragment = document.createDocumentFragment();
+            let works = data;
+            localStorage.setItem('worksedit', JSON.stringify(data));
+            createDocumentWorks(works);
+        })
+
     })
     .catch((error) => {
      console.error('Error:', error);
@@ -123,10 +136,20 @@ async function sendWorkData(data) {
         },
         body: data,
     });
-// actualiser la page pour voir l'ajout
-    window.location.reload();
-    
-    return response.json();
+
+// requête http pour voir les photos ajoutées
+    const fetchWorks = 'http://localhost:5678/api/works';
+
+    fetch(fetchWorks)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            const fragment = document.createDocumentFragment();
+            let works = data;
+            localStorage.setItem('worksedit', JSON.stringify(data));
+            createDocumentWorks(works);
+        })
 }
 
 // Fonction pour gérer l'envoi du formulaire
