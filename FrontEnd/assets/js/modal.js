@@ -218,7 +218,6 @@ function uploadImage() {
     // Ajout du debounce pour éviter le spam click
     const handleSubmit = () => {
         submitProjet.addEventListener("click", () => {
-          handleFormSubmit();
           closeAddWorkModal();
         });
   

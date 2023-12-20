@@ -77,6 +77,15 @@ function createDocumentWorks(works) {
         const div = document.createElement('div');
         const img = document.createElement('img');
 
+        // redimensionner les images
+        img.onload = function() {
+            if (this.width > this.height) {
+                this.height = 488;
+            } else {
+                this.width = 367;
+            }
+        }
+
         img.src = work.imageUrl;
         img.crossOrigin = 'anonymous';
 
