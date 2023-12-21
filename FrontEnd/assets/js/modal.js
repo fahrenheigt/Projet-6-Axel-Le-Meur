@@ -74,12 +74,14 @@ previousBtn.addEventListener("click", function() {
     closeAddWorkModal();
     openGalleryModal();
     addWorkModal();
+    clearModalContent();
 });
 
 window.onclick = function (event) {
     if (event.target == backgroundModal) {
         closeAddWorkModal();
         closeGalleryModal();
+        clearModalContent();
     }
 }
 
@@ -237,5 +239,3 @@ function uploadImage() {
         submitProjet.style.backgroundColor = "#1D6154";
         submitProjet.style.transform = "scale(1)";
       });
-
-  
