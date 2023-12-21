@@ -107,7 +107,7 @@ function deleteWork(event, id) {
          alert.style.display = "block";
          setTimeout(() => { alert.style.display = "none"; }, 5000);
 
-// requête http pour voir les photos ajoutées
+// requête http pour voir les photos supprimées
     const fetchWorks = 'http://localhost:5678/api/works';
 
     fetch(fetchWorks)
