@@ -137,7 +137,10 @@ async function sendWorkData(data) {
             'Authorization': getAuthorization()
         },
         body: data,
-    });
+    })
+    clearModalContent();
+    ;
+
 
 // requête http pour voir les photos ajoutées
     const fetchWorks = 'http://localhost:5678/api/works';
